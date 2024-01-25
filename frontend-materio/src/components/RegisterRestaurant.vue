@@ -36,9 +36,7 @@
 
 <script>
 import String from './primitives/String.vue'
-import String from './String.vue'
-import String from './String.vue'
-import String from './String.vue'
+
 
 export default {
     name: 'RegisterRestaurantCommand',

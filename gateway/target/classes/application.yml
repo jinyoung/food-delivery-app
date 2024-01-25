@@ -7,20 +7,26 @@ spring:
   profiles: default
   cloud:
     gateway:
+      httpclient:
+        pool:
+          max-idle-time: 20s
+          max-life-time: 20s      
+        connect-timeout: 10000
+        response-timeout: 20s
 #<<< API Gateway / Routes
       routes:
         - id: food-ordering
           uri: http://localhost:8082
           predicates:
-            - Path=/foodOrders/**, /restaurants/**, 
+            - Path=/foodOrders/**, /restaurants/**
         - id: food-delivery
           uri: http://localhost:8083
           predicates:
-            - Path=/deliveryOrders/**, 
+            - Path=/deliveryOrders/**
         - id: restaurant-management
           uri: http://localhost:8084
           predicates:
-            - Path=/restaurantManagements/**, 
+            - Path=/restaurantManagements/**
         - id: frontend
           uri: http://localhost:8080
           predicates:

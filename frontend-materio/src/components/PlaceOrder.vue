@@ -37,18 +37,14 @@
 
 <script>
 import String from './primitives/String.vue'
-import String from './String.vue'
-import String from './String.vue'
-import String from './String.vue'
+
 import Payment from './vo/Payment.vue'
 
 export default {
     name: 'PlaceOrderCommand',
     components:{
         String,
-        String,
-        String,
-        String,
+
         Payment,
     },
     props: {},
