@@ -26,7 +26,7 @@ public class DeliveryOrderController {
         produces = "application/json;charset=UTF-8"
     )
     public DeliveryOrder assignDeliveryDriver(
-        @PathVariable(value = "id") String id,
+        @PathVariable(value = "id") Long id,
         @RequestBody AssignDeliveryDriverCommand assignDeliveryDriverCommand,
         HttpServletRequest request,
         HttpServletResponse response
@@ -53,7 +53,7 @@ public class DeliveryOrderController {
         produces = "application/json;charset=UTF-8"
     )
     public DeliveryOrder updateDeliveryStatus(
-        @PathVariable(value = "id") String id,
+        @PathVariable(value = "id") Long id,
         @RequestBody UpdateDeliveryStatusCommand updateDeliveryStatusCommand,
         HttpServletRequest request,
         HttpServletResponse response

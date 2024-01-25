@@ -126,7 +126,7 @@
             this.values = temp.data._embedded.foodorders;
             
             this.newValue = {
-                'orderId': '',
+                'orderId': 0,
                 'userId': '',
                 'restaurantId': '',
                 'menuItem': '',

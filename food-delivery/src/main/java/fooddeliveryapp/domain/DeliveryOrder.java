@@ -14,7 +14,8 @@ import lombok.Data;
 public class DeliveryOrder {
 
     @Id
-    private String orderId;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long orderId;
 
     private String userId;
 
