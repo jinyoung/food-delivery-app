@@ -19,33 +19,5 @@ public class RestaurantManagementController {
 
     @Autowired
     RestaurantManagementRepository restaurantManagementRepository;
-
-    @RequestMapping(
-        value = "restaurantManagements/{id}/",
-        method = RequestMethod.PUT,
-        produces = "application/json;charset=UTF-8"
-    )
-    public RestaurantManagement updateRestaurantMenu(
-        @PathVariable(value = "id") String id,
-        @RequestBody UpdateRestaurantMenuCommand updateRestaurantMenuCommand,
-        HttpServletRequest request,
-        HttpServletResponse response
-    ) throws Exception {
-        System.out.println(
-            "##### /restaurantManagement/updateRestaurantMenu  called #####"
-        );
-        Optional<RestaurantManagement> optionalRestaurantManagement = restaurantManagementRepository.findById(
-            id
-        );
-
-        optionalRestaurantManagement.orElseThrow(() ->
-            new Exception("No Entity Found")
-        );
-        RestaurantManagement restaurantManagement = optionalRestaurantManagement.get();
-        restaurantManagement.updateRestaurantMenu(updateRestaurantMenuCommand);
-
-        restaurantManagementRepository.save(restaurantManagement);
-        return restaurantManagement;
-    }
 }
 //>>> Clean Arch / Inbound Adaptor

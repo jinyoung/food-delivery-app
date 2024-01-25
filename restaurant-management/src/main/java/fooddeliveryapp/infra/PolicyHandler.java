@@ -22,5 +22,17 @@ public class PolicyHandler {
 
     @StreamListener(KafkaProcessor.INPUT)
     public void whatever(@Payload String eventString) {}
+
+    @StreamListener(
+        value = KafkaProcessor.INPUT,
+        condition = "headers['type']=='OrderPlaced'"
+    )
+    public void wheneverOrderPlaced_주문(@Payload OrderPlaced orderPlaced) {
+        OrderPlaced event = orderPlaced;
+        System.out.println("\n\n##### listener 주문 : " + orderPlaced + "\n\n");
+
+        // Sample Logic //
+        RestaurantManagement.주문(event);
+    }
 }
 //>>> Clean Arch / Inbound Adaptor
