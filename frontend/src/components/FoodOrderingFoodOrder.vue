@@ -22,7 +22,7 @@
             <String label="메뉴 항목" v-model="value.menuItem" :editMode="editMode" :inputUI="''"/>
             <Payment offline label="결제 정보" v-model="value.paymentInfo" :editMode="editMode" @change="change"/>
             <String label="주문 상태" v-model="value.status" :editMode="editMode" :inputUI="''"/>
-            <statusType offline label="주문 상태 유형" v-model="value.statusType" :editMode="editMode" @change="change"/>
+            <String label="주문 상태 유형" v-model="value.statusType" :editMode="editMode" :inputUI="''"/>
             <String label="배달원 ID" v-model="value.deliveryDriverId" :editMode="editMode" :inputUI="''"/>
         </v-card-text>
 

@@ -23,6 +23,7 @@ public class FoodOrder {
 
     private String menuItem;
 
+    @Embedded
     private Payment paymentInfo;
 
     private String status;

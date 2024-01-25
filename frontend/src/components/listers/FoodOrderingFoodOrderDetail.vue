@@ -21,7 +21,9 @@
             <div>
                 <String label="Status" v-model="item.status" :editMode="editMode" @change="change" />
             </div>
-            <statusType offline label="StatusType" v-model="item.statusType" :editMode="false" :key="false" @change="change" />
+            <div>
+                <String label="StatusType" v-model="item.statusType" :editMode="editMode" @change="change" />
+            </div>
             <div>
                 <String label="DeliveryDriverId" v-model="item.deliveryDriverId" :editMode="editMode" @change="change" />
             </div>
