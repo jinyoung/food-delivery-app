@@ -40,6 +40,12 @@ public class RestaurantManagement {
     public static void takeOrder(OrderPlaced orderPlaced) {
         //implement business logic here:
 
+        RestaurantManagement newRestaurantManagement = new RestaurantManagement();
+        newRestaurantManagement.setRestaurantId(orderPlaced.getRestaurantId());
+        newRestaurantManagement.setMenu(orderPlaced.getMenuItem());
+        
+        repository().save(newRestaurantManagement);
+
         /** Example 1:  new item  
         RestaurantManagement restaurantManagement = new RestaurantManagement();
         

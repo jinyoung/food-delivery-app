@@ -34,7 +34,7 @@ mvn spring-boot:run
 ## Test by API
 - food-ordering
 ```
- http :8088/foodOrders orderId="orderId" userId="userId" restaurantId="restaurantId" menuItem="menuItem" paymentInfo="paymentInfo" status="status" statusType="statusType" deliveryDriverId="deliveryDriverId" 
+ http :8082/foodOrders userId="userId" restaurantId="restaurantId" menuItem="menuItem" paymentInfo="paymentInfo" status="status" statusType="statusType" deliveryDriverId="deliveryDriverId" 
  http :8088/restaurants restaurantId="restaurantId" restaurantName="restaurantName" menu="menu" operatingHours="operatingHours" 
 ```
 - food-delivery
