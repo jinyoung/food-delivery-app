@@ -32,11 +32,30 @@ public class RestaurantManagement {
         return restaurantManagementRepository;
     }
 
+    public void UpdateRestaurantMenu() {
+        //
+    }
+
     //<<< Clean Arch / Port Method
-    public void updateRestaurantMenu(
-        UpdateRestaurantMenuCommand updateRestaurantMenuCommand
-    ) {
+    public static void 주문(OrderPlaced orderPlaced) {
         //implement business logic here:
+
+        /** Example 1:  new item 
+        RestaurantManagement restaurantManagement = new RestaurantManagement();
+        repository().save(restaurantManagement);
+
+        */
+
+        /** Example 2:  finding and process
+        
+        repository().findById(orderPlaced.get???()).ifPresent(restaurantManagement->{
+            
+            restaurantManagement // do something
+            repository().save(restaurantManagement);
+
+
+         });
+        */
 
     }
     //>>> Clean Arch / Port Method

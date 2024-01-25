@@ -14,10 +14,6 @@ public class RestaurantManagementHateoasProcessor
     public EntityModel<RestaurantManagement> process(
         EntityModel<RestaurantManagement> model
     ) {
-        model.add(
-            Link.of(model.getRequiredLink("self").getHref() + "/").withRel("")
-        );
-
         return model;
     }
 }
