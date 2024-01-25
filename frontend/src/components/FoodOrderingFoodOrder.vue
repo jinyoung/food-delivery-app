@@ -16,7 +16,7 @@
         </v-card-title >        
 
         <v-card-text>
-            <String v-if="editMode" label="주문 ID" v-model="value.orderId" :editMode="editMode" :inputUI="''"/>
+            <Number v-if="editMode" label="주문 ID" v-model="value.orderId" :editMode="editMode" :inputUI="''"/>
             <String label="사용자 ID" v-model="value.userId" :editMode="editMode" :inputUI="''"/>
             <String label="음식점 ID" v-model="value.restaurantId" :editMode="editMode" :inputUI="''"/>
             <String label="메뉴 항목" v-model="value.menuItem" :editMode="editMode" :inputUI="''"/>

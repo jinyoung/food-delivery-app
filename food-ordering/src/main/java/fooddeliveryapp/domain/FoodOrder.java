@@ -15,7 +15,8 @@ import lombok.Data;
 public class FoodOrder {
 
     @Id
-    private String orderId;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long orderId;
 
     private String userId;
 

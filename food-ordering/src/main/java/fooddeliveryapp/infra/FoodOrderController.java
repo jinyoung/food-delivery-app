@@ -26,7 +26,7 @@ public class FoodOrderController {
         produces = "application/json;charset=UTF-8"
     )
     public FoodOrder updateOrderStatus(
-        @PathVariable(value = "id") String id,
+        @PathVariable(value = "id") Long id,
         @RequestBody UpdateOrderStatusCommand updateOrderStatusCommand,
         HttpServletRequest request,
         HttpServletResponse response

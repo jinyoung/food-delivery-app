@@ -10,4 +10,4 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
     path = "foodOrders"
 )
 public interface FoodOrderRepository
-    extends PagingAndSortingRepository<FoodOrder, String> {}
+    extends PagingAndSortingRepository<FoodOrder, Long> {}

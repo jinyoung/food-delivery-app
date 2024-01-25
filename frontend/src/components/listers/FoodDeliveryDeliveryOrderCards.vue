@@ -109,7 +109,7 @@
             me.values = temp.data._embedded.deliveryOrders;
             
             me.newValue = {
-                'orderId': '',
+                'orderId': 0,
                 'userId': '',
                 'restaurantId': '',
                 'status': '',
