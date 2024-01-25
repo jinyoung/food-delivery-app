@@ -27,7 +27,7 @@ public class FoodOrder {
 
     private String status;
 
-    private statusType statusType;
+    private String statusType;
 
     private String deliveryDriverId;
 
