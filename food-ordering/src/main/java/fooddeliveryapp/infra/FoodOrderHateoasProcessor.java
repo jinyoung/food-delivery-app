@@ -12,9 +12,9 @@ public class FoodOrderHateoasProcessor
 
     @Override
     public EntityModel<FoodOrder> process(EntityModel<FoodOrder> model) {
-        model.add(
-            Link.of(model.getRequiredLink("self").getHref() + "/").withRel("")
-        );
+        // model.add(
+        //     Link.of(model.getRequiredLink("self").getHref() + "/").withRel("")
+        // );
 
         return model;
     }

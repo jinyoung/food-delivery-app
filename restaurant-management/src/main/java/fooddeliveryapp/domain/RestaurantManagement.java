@@ -37,14 +37,15 @@ public class RestaurantManagement {
     }
 
     //<<< Clean Arch / Port Method
-    public static void 주문(OrderPlaced orderPlaced) {
+    public static void takeOrder(OrderPlaced orderPlaced) {
         //implement business logic here:
 
-        /** Example 1:  new item 
+        /** Example 1:  new item  
         RestaurantManagement restaurantManagement = new RestaurantManagement();
+        
         repository().save(restaurantManagement);
 
-        */
+       */
 
         /** Example 2:  finding and process
         
