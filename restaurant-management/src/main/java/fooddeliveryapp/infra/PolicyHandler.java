@@ -27,9 +27,13 @@ public class PolicyHandler {
         value = KafkaProcessor.INPUT,
         condition = "headers['type']=='OrderPlaced'"
     )
-    public void wheneverOrderPlaced(@Payload OrderPlaced orderPlaced) {
+    public void wheneverOrderPlaced_TakeOrder(
+        @Payload OrderPlaced orderPlaced
+    ) {
         OrderPlaced event = orderPlaced;
-        System.out.println("\n\n##### listener : " + orderPlaced + "\n\n");
+        System.out.println(
+            "\n\n##### listener TakeOrder : " + orderPlaced + "\n\n"
+        );
 
         // Sample Logic //
         RestaurantManagement.takeOrder(event);

@@ -1,0 +1,227 @@
+---
+paths:
+  /deliveryOrders:
+    summary: Global operations on deliveryOrders
+    get:
+      tags:
+        - deliveryOrders
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DeliveryOrder'
+              examples:
+                deliveryOrders_json:
+                  value:
+                    - orderId: 1
+                      userId: A string
+                      restaurantId: A string
+                      status: A string
+                      statusType: value
+                      deliveryDriverId: A string
+          description: Get list of deliveryOrders
+      operationId: GetDeliveryOrder
+      summary: Get list of deliveryOrders
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeliveryOrder'
+            examples:
+              '1':
+                value:
+                  orderId: 1
+                  userId: A string
+                  restaurantId: A string
+                  status: A string
+                  statusType: value
+                  deliveryDriverId: A string
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeliveryOrder'
+              examples:
+                '1':
+                  value:
+                    orderId: 1
+                    userId: A string
+                    restaurantId: A string
+                    status: A string
+                    statusType: value
+                    deliveryDriverId: A string
+          description: Changed DeliveryOrder
+      operationId: Post DeliveryOrder
+      summary: Post DeliveryOrder
+  '/deliveryOrders/{id}':
+    summary: Specific operation on deliveryOrders
+    get:
+      parameters:
+        - examples:
+            '1':
+              value: 1
+          name: id
+          description: DeliveryOrder name
+          schema:
+            type: integer
+          in: path
+          required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeliveryOrder'
+              examples:
+                '1':
+                  value:
+                    orderId: 1
+                    userId: A string
+                    restaurantId: A string
+                    status: A string
+                    statusType: value
+                    deliveryDriverId: A string
+          description: deliveryOrders with specified id
+      operationId: GetDeliveryOrderById
+      summary: Get DeliveryOrder by id
+      description: Get DeliveryOrder by id
+    patch:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeliveryOrder'
+            examples:
+              '1':
+                value:
+                  orderId: 1
+                  userId: A string
+                  restaurantId: A string
+                  status: A string
+                  statusType: value
+                  deliveryDriverId: A string
+        required: true
+      parameters:
+        - examples:
+            '1':
+              value: 1
+          name: orderId
+          description: DeliveryOrder name
+          schema:
+            type: integer
+          in: path
+          required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeliveryOrder'
+              examples:
+                '1':
+                  value:
+                    orderId: 1
+                    userId: A string
+                    restaurantId: A string
+                    status: A string
+                    statusType: value
+                    deliveryDriverId: A string
+          description: Changed DeliveryOrder
+      operationId: PatchDeliveryOrder
+      summary: Patch existing DeliveryOrder
+    parameters:
+      - name: id
+        description: DeliveryOrder id
+        schema:
+          type: integer
+        in: path
+        required: true
+  '/deliveryOrders/{id}/':
+    summary: UpdateDeliveryStatus operation on deliveryOrders
+    put:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                orderId:
+                  description: orderId of this UpdateDeliveryStatus
+                  type: string
+                status:
+                  description: status of this UpdateDeliveryStatus
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: UpdateDeliveryStatus name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeliveryOrder'
+              examples:
+                '1':
+                  value:
+                    orderId: 1
+                    userId: A string
+                    restaurantId: A string
+                    status: A string
+                    statusType: value
+                    deliveryDriverId: A string
+          description: UpdateDeliveryStatus Operation
+      operationId: UpdateDeliveryStatus
+      summary: UpdateDeliveryStatus
+      description: UpdateDeliveryStatus
+openapi: 3.0.2
+info:
+  title: DeliveryOrder
+  version: 0.0.1
+  description: API definition of deliveryOrder
+  contact:
+    name: creator's name
+    url: 'http://creator.homepage.address'
+    email: creator@creator.com
+  license:
+    name: MIT License
+    url: 'https://opensource.org/licenses/MIT'
+components:
+  schemas:
+    DeliveryOrder:
+      title: Root Type for DeliveryOrder
+      description: The root of the DeliveryOrder type's schema.
+      type: object
+      properties:
+        orderId:
+          description: orderId of this DeliveryOrder
+          type: integer
+        userId:
+          description: userId of this DeliveryOrder
+          type: string
+        restaurantId:
+          description: restaurantId of this DeliveryOrder
+          type: string
+        status:
+          description: status of this DeliveryOrder
+          type: string
+        statusType:
+          description: statusType of this DeliveryOrder
+          type: string
+        deliveryDriverId:
+          description: deliveryDriverId of this DeliveryOrder
+          type: string
+tags:
+  - name: DeliveryOrder
+    description: DeliveryOrder resource

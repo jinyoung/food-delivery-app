@@ -1,0 +1,256 @@
+---
+paths:
+  '/foodOrders/{id}/':
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                orderId:
+                  description: orderId of this PlaceOrder
+                  type: string
+                userId:
+                  description: userId of this PlaceOrder
+                  type: string
+                restaurantId:
+                  description: restaurantId of this PlaceOrder
+                  type: string
+                menuItem:
+                  description: menuItem of this PlaceOrder
+                  type: string
+                paymentInfo:
+                  description: paymentInfo of this PlaceOrder
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: PlaceOrder name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FoodOrder'
+              examples:
+                '1':
+                  value:
+                    orderId: 1
+                    userId: A string
+                    restaurantId: A string
+                    menuItem: A string
+                    paymentInfo: value
+                    status: A string
+                    statusType: A string
+                    deliveryDriverId: A string
+          description: PlaceOrder Operation
+      operationId: PlaceOrder
+      summary: PlaceOrder
+      description: PlaceOrder
+    summary: UpdateOrderStatus operation on foodOrders
+  /foodOrders:
+    summary: Global operations on foodOrders
+    get:
+      tags:
+        - foodOrders
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FoodOrder'
+              examples:
+                foodOrders_json:
+                  value:
+                    - orderId: 1
+                      userId: A string
+                      restaurantId: A string
+                      menuItem: A string
+                      paymentInfo: value
+                      status: A string
+                      statusType: A string
+                      deliveryDriverId: A string
+          description: Get list of foodOrders
+      operationId: GetFoodOrder
+      summary: Get list of foodOrders
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FoodOrder'
+            examples:
+              '1':
+                value:
+                  orderId: 1
+                  userId: A string
+                  restaurantId: A string
+                  menuItem: A string
+                  paymentInfo: value
+                  status: A string
+                  statusType: A string
+                  deliveryDriverId: A string
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FoodOrder'
+              examples:
+                '1':
+                  value:
+                    orderId: 1
+                    userId: A string
+                    restaurantId: A string
+                    menuItem: A string
+                    paymentInfo: value
+                    status: A string
+                    statusType: A string
+                    deliveryDriverId: A string
+          description: Changed FoodOrder
+      operationId: Post FoodOrder
+      summary: Post FoodOrder
+  '/foodOrders/{id}':
+    summary: Specific operation on foodOrders
+    get:
+      parameters:
+        - examples:
+            '1':
+              value: 1
+          name: id
+          description: FoodOrder name
+          schema:
+            type: integer
+          in: path
+          required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FoodOrder'
+              examples:
+                '1':
+                  value:
+                    orderId: 1
+                    userId: A string
+                    restaurantId: A string
+                    menuItem: A string
+                    paymentInfo: value
+                    status: A string
+                    statusType: A string
+                    deliveryDriverId: A string
+          description: foodOrders with specified id
+      operationId: GetFoodOrderById
+      summary: Get FoodOrder by id
+      description: Get FoodOrder by id
+    patch:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FoodOrder'
+            examples:
+              '1':
+                value:
+                  orderId: 1
+                  userId: A string
+                  restaurantId: A string
+                  menuItem: A string
+                  paymentInfo: value
+                  status: A string
+                  statusType: A string
+                  deliveryDriverId: A string
+        required: true
+      parameters:
+        - examples:
+            '1':
+              value: 1
+          name: orderId
+          description: FoodOrder name
+          schema:
+            type: integer
+          in: path
+          required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FoodOrder'
+              examples:
+                '1':
+                  value:
+                    orderId: 1
+                    userId: A string
+                    restaurantId: A string
+                    menuItem: A string
+                    paymentInfo: value
+                    status: A string
+                    statusType: A string
+                    deliveryDriverId: A string
+          description: Changed FoodOrder
+      operationId: PatchFoodOrder
+      summary: Patch existing FoodOrder
+    parameters:
+      - name: id
+        description: FoodOrder id
+        schema:
+          type: integer
+        in: path
+        required: true
+openapi: 3.0.2
+info:
+  title: FoodOrder
+  version: 0.0.1
+  description: API definition of foodOrder
+  contact:
+    name: creator's name
+    url: 'http://creator.homepage.address'
+    email: creator@creator.com
+  license:
+    name: MIT License
+    url: 'https://opensource.org/licenses/MIT'
+components:
+  schemas:
+    FoodOrder:
+      title: Root Type for FoodOrder
+      description: The root of the FoodOrder type's schema.
+      type: object
+      properties:
+        orderId:
+          description: orderId of this FoodOrder
+          type: integer
+        userId:
+          description: userId of this FoodOrder
+          type: string
+        restaurantId:
+          description: restaurantId of this FoodOrder
+          type: string
+        menuItem:
+          description: menuItem of this FoodOrder
+          type: string
+        paymentInfo:
+          description: paymentInfo of this FoodOrder
+          type: string
+        status:
+          description: status of this FoodOrder
+          type: string
+        statusType:
+          description: statusType of this FoodOrder
+          type: string
+        deliveryDriverId:
+          description: deliveryDriverId of this FoodOrder
+          type: string
+tags:
+  - name: FoodOrder
+    description: FoodOrder resource
