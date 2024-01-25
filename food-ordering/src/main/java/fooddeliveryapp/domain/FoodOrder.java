@@ -23,11 +23,12 @@ public class FoodOrder {
 
     private String menuItem;
 
+    @Embedded
     private Payment paymentInfo;
 
     private String status;
 
-    private statusType statusType;
+    private String statusType;
 
     private String deliveryDriverId;
 

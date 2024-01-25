@@ -130,7 +130,7 @@
                 'userId': '',
                 'restaurantId': '',
                 'menuItem': '',
-                'paymentInfo': '',
+                'paymentInfo': {},
                 'status': '',
                 'statusType': '',
                 'deliveryDriverId': '',
