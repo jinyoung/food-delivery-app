@@ -1,0 +1,204 @@
+---
+paths:
+  '/restaurantManagements/{id}/':
+    summary: ViewOrderHistory operation on restaurantManagements
+    get:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                restaurantId:
+                  description: restaurantId of this ViewOrderHistory
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: ViewOrderHistory name
+          schema:
+            type: string
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestaurantManagement'
+              examples:
+                '1':
+                  value:
+                    restaurantId: A string
+                    restaurantName: A string
+                    menu: A string
+                    orderHistory: A string
+          description: ViewOrderHistory Operation
+      operationId: ViewOrderHistory
+      summary: ViewOrderHistory
+      description: ViewOrderHistory
+  /restaurantManagements:
+    summary: Global operations on restaurantManagements
+    get:
+      tags:
+        - restaurantManagements
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RestaurantManagement'
+              examples:
+                restaurantManagements_json:
+                  value:
+                    - restaurantId: A string
+                      restaurantName: A string
+                      menu: A string
+                      orderHistory: A string
+          description: Get list of restaurantManagements
+      operationId: GetRestaurantManagement
+      summary: Get list of restaurantManagements
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RestaurantManagement'
+            examples:
+              '1':
+                value:
+                  restaurantId: A string
+                  restaurantName: A string
+                  menu: A string
+                  orderHistory: A string
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestaurantManagement'
+              examples:
+                '1':
+                  value:
+                    restaurantId: A string
+                    restaurantName: A string
+                    menu: A string
+                    orderHistory: A string
+          description: Changed RestaurantManagement
+      operationId: Post RestaurantManagement
+      summary: Post RestaurantManagement
+  '/restaurantManagements/{id}':
+    summary: Specific operation on restaurantManagements
+    get:
+      parameters:
+        - examples:
+            A string:
+              value: A string
+          name: id
+          description: RestaurantManagement name
+          schema:
+            type: string
+          in: path
+          required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestaurantManagement'
+              examples:
+                '1':
+                  value:
+                    restaurantId: A string
+                    restaurantName: A string
+                    menu: A string
+                    orderHistory: A string
+          description: restaurantManagements with specified id
+      operationId: GetRestaurantManagementById
+      summary: Get RestaurantManagement by id
+      description: Get RestaurantManagement by id
+    patch:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RestaurantManagement'
+            examples:
+              '1':
+                value:
+                  restaurantId: A string
+                  restaurantName: A string
+                  menu: A string
+                  orderHistory: A string
+        required: true
+      parameters:
+        - examples:
+            '1':
+              value: 1
+          name: restaurantId
+          description: RestaurantManagement name
+          schema:
+            type: string
+          in: path
+          required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestaurantManagement'
+              examples:
+                '1':
+                  value:
+                    restaurantId: A string
+                    restaurantName: A string
+                    menu: A string
+                    orderHistory: A string
+          description: Changed RestaurantManagement
+      operationId: PatchRestaurantManagement
+      summary: Patch existing RestaurantManagement
+    parameters:
+      - name: id
+        description: RestaurantManagement id
+        schema:
+          type: string
+        in: path
+        required: true
+openapi: 3.0.2
+info:
+  title: RestaurantManagement
+  version: 0.0.1
+  description: API definition of restaurantManagement
+  contact:
+    name: creator's name
+    url: 'http://creator.homepage.address'
+    email: creator@creator.com
+  license:
+    name: MIT License
+    url: 'https://opensource.org/licenses/MIT'
+components:
+  schemas:
+    RestaurantManagement:
+      title: Root Type for RestaurantManagement
+      description: The root of the RestaurantManagement type's schema.
+      type: object
+      properties:
+        restaurantId:
+          description: restaurantId of this RestaurantManagement
+          type: string
+        restaurantName:
+          description: restaurantName of this RestaurantManagement
+          type: string
+        menu:
+          description: menu of this RestaurantManagement
+          type: string
+        orderHistory:
+          description: orderHistory of this RestaurantManagement
+          type: string
+tags:
+  - name: RestaurantManagement
+    description: RestaurantManagement resource

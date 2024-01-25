@@ -1,0 +1,213 @@
+---
+paths:
+  '/restaurants/{id}/':
+    summary: RegisterRestaurant operation on restaurants
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                restaurantId:
+                  description: restaurantId of this RegisterRestaurant
+                  type: string
+                restaurantName:
+                  description: restaurantName of this RegisterRestaurant
+                  type: string
+                menu:
+                  description: menu of this RegisterRestaurant
+                  type: string
+                operatingHours:
+                  description: operatingHours of this RegisterRestaurant
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: RegisterRestaurant name
+          schema:
+            type: string
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Restaurant'
+              examples:
+                '1':
+                  value:
+                    restaurantId: A string
+                    restaurantName: A string
+                    menu: A string
+                    operatingHours: A string
+          description: RegisterRestaurant Operation
+      operationId: RegisterRestaurant
+      summary: RegisterRestaurant
+      description: RegisterRestaurant
+  /restaurants:
+    summary: Global operations on restaurants
+    get:
+      tags:
+        - restaurants
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Restaurant'
+              examples:
+                restaurants_json:
+                  value:
+                    - restaurantId: A string
+                      restaurantName: A string
+                      menu: A string
+                      operatingHours: A string
+          description: Get list of restaurants
+      operationId: GetRestaurant
+      summary: Get list of restaurants
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Restaurant'
+            examples:
+              '1':
+                value:
+                  restaurantId: A string
+                  restaurantName: A string
+                  menu: A string
+                  operatingHours: A string
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Restaurant'
+              examples:
+                '1':
+                  value:
+                    restaurantId: A string
+                    restaurantName: A string
+                    menu: A string
+                    operatingHours: A string
+          description: Changed Restaurant
+      operationId: Post Restaurant
+      summary: Post Restaurant
+  '/restaurants/{id}':
+    summary: Specific operation on restaurants
+    get:
+      parameters:
+        - examples:
+            A string:
+              value: A string
+          name: id
+          description: Restaurant name
+          schema:
+            type: string
+          in: path
+          required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Restaurant'
+              examples:
+                '1':
+                  value:
+                    restaurantId: A string
+                    restaurantName: A string
+                    menu: A string
+                    operatingHours: A string
+          description: restaurants with specified id
+      operationId: GetRestaurantById
+      summary: Get Restaurant by id
+      description: Get Restaurant by id
+    patch:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Restaurant'
+            examples:
+              '1':
+                value:
+                  restaurantId: A string
+                  restaurantName: A string
+                  menu: A string
+                  operatingHours: A string
+        required: true
+      parameters:
+        - examples:
+            '1':
+              value: 1
+          name: restaurantId
+          description: Restaurant name
+          schema:
+            type: string
+          in: path
+          required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Restaurant'
+              examples:
+                '1':
+                  value:
+                    restaurantId: A string
+                    restaurantName: A string
+                    menu: A string
+                    operatingHours: A string
+          description: Changed Restaurant
+      operationId: PatchRestaurant
+      summary: Patch existing Restaurant
+    parameters:
+      - name: id
+        description: Restaurant id
+        schema:
+          type: string
+        in: path
+        required: true
+openapi: 3.0.2
+info:
+  title: Restaurant
+  version: 0.0.1
+  description: API definition of restaurant
+  contact:
+    name: creator's name
+    url: 'http://creator.homepage.address'
+    email: creator@creator.com
+  license:
+    name: MIT License
+    url: 'https://opensource.org/licenses/MIT'
+components:
+  schemas:
+    Restaurant:
+      title: Root Type for Restaurant
+      description: The root of the Restaurant type's schema.
+      type: object
+      properties:
+        restaurantId:
+          description: restaurantId of this Restaurant
+          type: string
+        restaurantName:
+          description: restaurantName of this Restaurant
+          type: string
+        menu:
+          description: menu of this Restaurant
+          type: string
+        operatingHours:
+          description: operatingHours of this Restaurant
+          type: string
+tags:
+  - name: Restaurant
+    description: Restaurant resource

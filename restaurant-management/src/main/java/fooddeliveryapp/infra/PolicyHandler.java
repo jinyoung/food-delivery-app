@@ -27,12 +27,16 @@ public class PolicyHandler {
         value = KafkaProcessor.INPUT,
         condition = "headers['type']=='OrderPlaced'"
     )
-    public void wheneverOrderPlaced_주문(@Payload OrderPlaced orderPlaced) {
+    public void wheneverOrderPlaced_TakeOrder(
+        @Payload OrderPlaced orderPlaced
+    ) {
         OrderPlaced event = orderPlaced;
-        System.out.println("\n\n##### listener 주문 : " + orderPlaced + "\n\n");
+        System.out.println(
+            "\n\n##### listener TakeOrder : " + orderPlaced + "\n\n"
+        );
 
         // Sample Logic //
-        RestaurantManagement.주문(event);
+        RestaurantManagement.takeOrder(event);
     }
 }
 //>>> Clean Arch / Inbound Adaptor
